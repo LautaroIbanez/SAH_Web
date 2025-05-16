@@ -30,6 +30,9 @@ MOTIVOS = [
     "Vacaciones",
     "Educación",
     "Otro"
-] 
+]
+
+# Tope máximo para préstamos (en pesos)
+TOPE_MAXIMO_PRESTAMO = 5_000_000  # 5 millones de pesos
 
 
