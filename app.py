@@ -9,7 +9,7 @@ import calendar
 import io
 import base64
 import os
-from resources import CODIGOS_BRUTO, CODIGOS_DEDUCCIONES, MOTIVOS
+from resources import CODIGOS_BRUTO, CODIGOS_DEDUCCIONES, MOTIVOS, TOPE_MAXIMO_PRESTAMO
 
 # Configuración de la página
 st.set_page_config(
@@ -417,6 +417,10 @@ if st.button("Simular", key="simular_button"):
     # Validaciones
     if cuotas < 1 or cuotas > 18:
         st.error("La cantidad de cuotas debe ser entre 1 y 18.")
+        st.stop()
+    
+    if monto > TOPE_MAXIMO_PRESTAMO:
+        st.error(f"El monto excede el tope máximo permitido de ${TOPE_MAXIMO_PRESTAMO:,.2f}.")
         st.stop()
     
     if monto > 3 * bruto:
